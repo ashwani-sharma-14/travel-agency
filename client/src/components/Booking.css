@@ -1,0 +1,16 @@
+.no-spinner input::-webkit-outer-spin-button,
+.no-spinner input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form{
+    position: relative;
+    top: 100px;
+    margin: auto;
+    width:350px;
+}
