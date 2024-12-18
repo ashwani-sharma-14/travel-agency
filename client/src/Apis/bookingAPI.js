@@ -3,7 +3,7 @@ import axios from "axios";
 export const bookingAPi = async ( id, formData) => {
   try {
     const result = await axios.post(
-      `https://travel-agency-website-ujh8.onrender.com/packages/${id}/booking`,
+      `http://localhost:8080/packages/${id}/booking`,
       formData,
       {
         headers: {
