@@ -9,6 +9,7 @@ import { homeAPI } from "../Apis/homeApi";
 import { detailAPi } from "../Apis/detailAPI";
 import { useNavigate } from "react-router-dom";
 import { availableDate } from "../utils/dates";
+import  AdminHome from "./AdminHome"
 export default function Home() {
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(null);
@@ -39,6 +40,10 @@ export default function Home() {
     return <div>Error: {error.message}</div>;
   }
 
+const renderAdmin=()=>{
+  navigate("/admin");
+}
+
   const details = async (id) => {
     try {
       const result = await detailAPi(id);
@@ -50,7 +55,11 @@ export default function Home() {
     }
   };
 
+
+
   return (
+    <>
+  
     <div className="packages-card">
       {packages.map((pkg) => {
         const name = pkg.name;
@@ -88,10 +97,15 @@ export default function Home() {
                 </ol>
               </Typography>
             </CardContent>
-            <CardActions></CardActions>
+            <CardActions>
+             
+            </CardActions>
           </Card>
         );
       })}
+       
     </div>
+    <button onClick={renderAdmin} >Admin</button>
+    </>
   );
 }
