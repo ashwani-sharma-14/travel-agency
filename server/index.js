@@ -17,6 +17,8 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost4000",
     "http://localhost5000",
+    "https://travel-agency-website-1.onrender.com",
+    "http://192.168.184.198:5173"
   ],
   credentials: true,
   optionSuccessStatus: 200,
