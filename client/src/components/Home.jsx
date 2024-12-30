@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import { homeAPI } from "../Apis/homeApi";
 import { detailAPi } from "../Apis/detailAPI";
 import { useNavigate } from "react-router-dom";
 import { availableDate } from "../utils/dates";
-import  AdminHome from "./AdminHome"
+import AdminHome from "./AdminHome";
+
 export default function Home() {
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   useEffect(() => {
     const dataFetched = async () => {
       try {
         const result = await homeAPI();
         setPackages(result.pkgData);
-        console.log(result.pkgData);
-        console.log(result.id);
       } catch (err) {
-        console.error(`Error in data: ${err}`);
         setError(err);
       } finally {
         setLoading(false);
@@ -40,9 +34,9 @@ export default function Home() {
     return <div>Error: {error.message}</div>;
   }
 
-const renderAdmin=()=>{
-  navigate("/admin");
-}
+  const renderAdmin = () => {
+    navigate("/admin");
+  };
 
   const details = async (id) => {
     try {
@@ -55,57 +49,51 @@ const renderAdmin=()=>{
     }
   };
 
-
-
   return (
     <>
-  
-    <div className="packages-card">
-      {packages.map((pkg) => {
-        const name = pkg.name;
-        const pictures = pkg.picture;
-        const index = pkg.index;
-        const dates = pkg.dates;
-        const location = pkg.location;
-        const availableDates = dates.map(availableDate);
+      <div className="hero-section" >
+        <h1 className="hero-title">Welcome to Odyssey Horizons</h1>
+        <p className="hero-quote">"The world is a book, and those who do not travel read only one page." - Saint Augustine</p>
+        <button className="hero-button">Discover Now</button>
+      </div>
 
-        return (
-          <Card
-            key={index}
-            sx={{ maxWidth: 345, margin: "20px auto" }}
-            onClick={() => details(pkg.id)}
-          >
-            <CardMedia
-              component="img"
-              sx={{ height: 200 }}
-              image={pictures[0]}
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {name}
-              </Typography>
-              <Typography variant="body2" sx={{ color: "text.primary" }}>
-                City: {location}
-              </Typography>
-              <Typography className="dates" variant="body2" component="ol">
-                Available Dates:
-                <ol>
-                  {availableDates.map((date, index) => (
-                    <li key={index}>{date}</li>
-                  ))}
-                </ol>
-              </Typography>
-            </CardContent>
-            <CardActions>
-             
-            </CardActions>
-          </Card>
-        );
-      })}
-       
-    </div>
-    <button onClick={renderAdmin} >Admin</button>
+      <div className="packages-card">
+        {packages.map((pkg) => {
+          const name = pkg.name;
+          const pictures = pkg.picture;
+          const index = pkg.index;
+          const dates = pkg.dates;
+          const location = pkg.location;
+          const availableDates = dates.map(availableDate);
+
+          return (
+            <div key={index} className="card" onClick={() => details(pkg.id)}>
+              <div
+                className="image"
+                style={{
+                  backgroundImage: `url(${pictures[0]})`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              <div className="information">
+                <div className="heading">{name}</div>
+                <div className="description">
+                  Enjoy with your family and friends on {location}. It will be an
+                  unforgettable trip for you and your loved ones. Our package provides
+                  the best services out there.
+                </div>
+                <div className="available-dates">
+                  <strong>Available Dates:</strong> {availableDates.join(', ')}
+                </div>
+                <button className="learn-more" onClick={() => details(pkg.id)}>
+                  Learn More
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <button className="admin-button" onClick={renderAdmin}>Admin</button>
     </>
   );
 }

@@ -1,0 +1,95 @@
+  .details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .package-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0073e6;
+    margin-bottom: 20px;
+  }
+  
+  .image-list {
+    margin: 20px 0;
+  }
+  
+  .image-item img {
+    border-radius: 10px;
+  }
+  
+  .description-container {
+    text-align: left;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .description-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0073e6;
+    display: inline-block;
+  }
+  
+  .description-text {
+    font-size: 18px;
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  
+  .price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0073e6;
+    margin: 10px 0;
+  }
+  
+  .available-dates-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 10px 0;
+    border-bottom: 2px solid #0073e6;
+    display: inline-block;
+  }
+  
+  .available-dates-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .available-date {
+    font-size: 18px;
+    color: #666;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #f4f4f9;
+  }
+  
+  .book-now-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+  }
+  
+  .book-now-button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+  }
+  

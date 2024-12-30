@@ -16,46 +16,40 @@ export default function Details() {
   const loc = pkgDetail.pkgData.location;
   const price = pkgDetail.pkgData.price;
   const dates = pkgDetail.pkgData.dates;
-  const id = pkgDetail.pkgData.id
-  console.log(id)
+  const id = pkgDetail.pkgData.id;
   const availableDates = dates.map(availableDate);
   const navigate = useNavigate();
   const booking = async () => {
-    navigate(`/package/${id}/booking`, { state: {...pkgDetail.pkgData} });
+    navigate(`/package/${id}/booking`, { state: { ...pkgDetail.pkgData } });
   };
 
   return (
     <>
-      <div>
-        <h1>{name}</h1>
-        <ImageList sx={{ width: 1000, height: 350 }} cols={2} rowHeight={10}>
+      <div className="details-container">
+        <h1 className="package-name">{name}</h1>
+        <ImageList sx={{ width: 1000, height: 350 }} cols={2} rowHeight={10} className="image-list">
           {pic.map((item) => (
-            <ImageListItem key={item}>
-              <img srcSet={item} src={item} loading="lazy" />
+            <ImageListItem key={item} className="image-item">
+              <img srcSet={item} src={item} loading="lazy" alt={name} />
             </ImageListItem>
           ))}
         </ImageList>
-        <div>
-          <h2>Description:</h2>
-          <br />
-          <h3>
-            Enjoy with your family and friends on {loc} it will be an
-            unforgattable trip for you and your loved once, Our package provides
-            best services out there.{" "}
-          </h3>
-          <br />
-          <h3>Price:{price}</h3>
-          <h3>
-            Available Date:{" "}
-            <ol>
-              <li>{availableDates[0]}</li>
-              <li>{availableDates[1]}</li>
-              <li>{availableDates[2]}</li>
-            </ol>
-          </h3>
+        <div className="description-container">
+          <h2 className="description-title">Description</h2>
+          <p className="description-text">
+            Enjoy with your family and friends on {loc}. It will be an
+            unforgettable trip for you and your loved ones. Our package provides
+            the best services out there.
+          </p>
+          <p className="price">Price: {price}</p>
+          <h2 className="available-dates-title">Available Dates</h2>
+          <ul className="available-dates-list">
+            {availableDates.map((date, index) => (
+              <li key={index} className="available-date">{date}</li>
+            ))}
+          </ul>
         </div>
-        <br />
-        <button onClick={booking}>Book Now</button>
+        <button onClick={booking} className="book-now-button">Book Now</button>
       </div>
     </>
   );
