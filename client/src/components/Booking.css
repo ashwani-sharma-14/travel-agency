@@ -1,16 +1,65 @@
-.no-spinner input::-webkit-outer-spin-button,
-.no-spinner input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+
+.detail-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0073e6;
 }
 
-.no-spinner input[type="number"] {
-  -moz-appearance: textfield;
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form{
-    position: relative;
-    top: 100px;
-    margin: auto;
-    width:350px;
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #0073e6;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #0073e6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.5);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #0073e6;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+.submit-button:active {
+  transform: scale(0.95);
 }

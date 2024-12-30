@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./Invoice.css";
 
 export default function Invoice() {
   const [invoice, setInvoice] = useState({
@@ -14,6 +15,7 @@ export default function Invoice() {
 
   const location = useLocation();
   const invoiceResponse = location.state;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (invoiceResponse) {
@@ -29,12 +31,13 @@ export default function Invoice() {
     }
   }, [invoiceResponse]);
 
-
-  
+  const handleBack = () => {
+    navigate("/home");
+  };
 
   return (
-    <div className="invoice">
-      <h1>Invoice</h1>
+    <div className="invoice-container">
+      <h1 className="invoice-title">Invoice</h1>
       <div className="invoice-details">
         <p><strong>Name:</strong> {invoice.name}</p>
         <p><strong>Email:</strong> {invoice.email}</p>
@@ -42,10 +45,9 @@ export default function Invoice() {
         <p><strong>Package:</strong> {invoice.package}</p>
         <p><strong>Number of Travelers:</strong> {invoice.numberOfTravelers}</p>
         <p><strong>Date:</strong> {invoice.date}</p>
-        <p><strong>Total Price:</strong> ${invoice.totalPrice}</p>
+        <p><strong>Total Price:</strong> &#x20b9;{invoice.totalPrice}</p>
       </div>
-      <button>Back</button>
+      <button onClick={handleBack} className="back-button">Back</button>
     </div>
   );
 }
-

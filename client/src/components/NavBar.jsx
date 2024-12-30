@@ -1,6 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-scroll";
 export default function NavBar() {
   return (
     <>
@@ -28,10 +29,10 @@ export default function NavBar() {
         <div className="contact">
           <ul className="contactLinks">
             <li>
-              <a href="/about">About us</a>
+            <Link to="about-us" smooth={true} duration={500}>about us</Link>
             </li>
             <li>
-              <a href="/contact us">Contact us</a>
+            <Link to="contact-us" smooth={true} duration={500}>contact us</Link>
             </li>
           </ul>
         </div>
